@@ -27,15 +27,6 @@ while 1 == 1 {
 // PROCESS
 // Implement the primary logic of the problem here
 // Some output may be given here if you desire
-
-// NOTE:
-//
-// Some example code that may be useful
-
-
-//print(isAmerican)
-
-
 // Example of how to collect multiple input lines
 for counter in 1...expectedCountOfWordsToTranslate {
     
@@ -56,26 +47,38 @@ for counter in 1...expectedCountOfWordsToTranslate {
     let isAmerican = givenInput.hasSuffix("or")
     let isCanadian = givenInput.hasSuffix("our")
     
+    //if the input is less than 4, print out the solution
     if givenInput.count < 4 {
-        print(givenInput)
-    } else if isAmerican {
+        print("The translation is \(givenInput)")
+        
+    }
+        //if is American word, translate.
+    else if isAmerican{
+        // translate to Canadian
         for _ in givenInput {
-        var reversedWord = String(givenInput.reversed())
-        print("The reversed word is: \(reversedWord)")
-        var originalWord = String(reversedWord.reversed())
-        print("The reversed word, reversed again is: \(originalWord)")
-        if isCanadian {
+            let reversedWord = String(givenInput.reversed())
+            print(reversedWord)
+            //create a variable called reversed Canadian word
+            var reversedCanadianWord = ""
+            for letter in reversedWord {
+                reversedCanadianWord += String(letter)
+                //reversed the american word. E.g color, reversed word of color is roloc.
+                if reversedCanadianWord.count == 1 {
+                    //add u into the word. e.g ruoloc
+                    reversedCanadianWord += "u"
+                    
+                }
+                
+            }
+            //reversed the word again e.g colour
+            let originalWord = String(reversedCanadianWord.reversed())
+            print("The translation is \(originalWord)")
             break
-        } else {
-            var reversedAgainWord = String(originalWord.reversed())
-            print("The reversed word, reversed again is: \(reversedAgainWord)")
-            
         }
-        }
+    }
+        //if is Canadian word, print out the solution.
+    else if isCanadian {
+        print("The translation is \(givenInput)")
+        
+    }
 }
-}
-
-// OUTPUT
-// Report results to the user here
-
-
