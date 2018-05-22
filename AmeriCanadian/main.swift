@@ -48,7 +48,7 @@ for counter in 1...expectedCountOfWordsToTranslate {
     let isCanadian = givenInput.hasSuffix("our")
     
     //if the input is less than 4, print out the solution
-    if givenInput.count < 4 {
+    if givenInput.count <= 4 {
         print("The translation is \(givenInput)")
         
     }
